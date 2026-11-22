@@ -1,0 +1,11 @@
+$scriptPath = "$env:LOCALAPPDATA\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\Scripts"
+
+$userPath = [Environment]::GetEnvironmentVariable("Path", "User")
+
+if ($userPath -split ";" -notcontains $scriptPath) {
+    [Environment]::SetEnvironmentVariable(
+        "Path",
+        "$userPath;$scriptPath",
+        "User"
+    )
+}
